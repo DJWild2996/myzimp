@@ -1,33 +1,26 @@
-from outdoor_tile import OutdoorTile
 from abstract_factory import BaseAbstractFactory
+from outdoor_tile import OutdoorTile
 
 
 # ConcreteClass
 class OutdoorTileFactory(BaseAbstractFactory):
-    def __init__(self, name, x=16, y=16, effect=None, doors=None, entrance=None):  # Added default arguments - Daniel
-        if doors is None:
-            doors = []
-        self.name = name
-        self.x = x
-        self.y = y
-        self.effect = effect
-        self.doors = doors
-        self.entrance = entrance
+    def __init__(self):
+        return OutdoorTile()
 
     def set_x(self):
-        return OutdoorTile.set_x()
+        return OutdoorTile()
 
     def set_y(self):
-        return OutdoorTile.set_y()
+        return OutdoorTile()
 
     def change_door_position(self):
-        return OutdoorTile.change_door_position()
+        return OutdoorTile()
 
     def set_entrance(self):
-        return OutdoorTile.set_entrance()
+        return OutdoorTile()
 
     def rotate_entrance(self):
-        return OutdoorTile.rotate_tile()
+        return OutdoorTile()
 
     def rotate_tile(self):
-        return OutdoorTile.rotate_tile()
+        return OutdoorTile()

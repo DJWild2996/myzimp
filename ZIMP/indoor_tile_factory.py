@@ -1,33 +1,26 @@
-from indoor_tile import IndoorTile
 from abstract_factory import BaseAbstractFactory
+from indoor_tile import IndoorTile
 
 
 # ConcreteClass
 class IndoorTileFactory(BaseAbstractFactory):
-    def __init__(self, name, x=16, y=16, effect=None, doors=None, entrance=None):  # Added default arguments - Daniel
-        if doors is None:
-            doors = []
-        self.name = name
-        self.x = x
-        self.y = y
-        self.effect = effect
-        self.doors = doors
-        self.entrance = entrance
+    def __init__(self, name, x=16, y=16, effect=None, doors=None, entrance=None):
+        return IndoorTile()
 
     def set_x(self):
-        return IndoorTile.set_x()
+        return IndoorTile()
 
     def set_y(self):
-        return IndoorTile.set_y()
+        return IndoorTile()
 
     def change_door_position(self):
-        return IndoorTile.change_door_position()
+        return IndoorTile()
 
     def set_entrance(self):
-        return IndoorTile.set_entrance()
+        return IndoorTile()
 
     def rotate_entrance(self):
-        return IndoorTile.rotate_tile()
+        return IndoorTile()
 
     def rotate_tile(self):
-        return IndoorTile.rotate_tile()
+        return IndoorTile()

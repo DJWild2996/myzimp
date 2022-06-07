@@ -40,7 +40,6 @@ class Commands(cmd.Cmd):
             if self.game.state == "Moving":
                 self.game.select_move(dir.NORTH)
                 self.game.get_game()
-                self.game.get_player_status()
             else:
                 print("You are not currently in Move state")
         except SyntaxError:
