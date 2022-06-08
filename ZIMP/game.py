@@ -1,10 +1,9 @@
 import random
 from directions import Direction as dir
 import pandas as pd
-from abstract_factory import BaseAbstractFactory
 from dev_card import DevCard
-from indoor_tile import IndoorTile
-from outdoor_tile import OutdoorTile
+from indoor_tile_factory import IndoorTile
+from outdoor_tile_factory import OutdoorTile
 
 
 class Game:

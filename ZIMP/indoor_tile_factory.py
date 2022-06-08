@@ -4,7 +4,7 @@ from indoor_tile import IndoorTile
 
 # ConcreteClass
 class IndoorTileFactory(BaseAbstractFactory):
-    def __init__(self, name, x=16, y=16, effect=None, doors=None, entrance=None):
+    def __init__(self):
         return IndoorTile()
 
     def set_x(self):
