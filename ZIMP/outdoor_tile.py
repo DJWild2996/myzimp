@@ -2,6 +2,7 @@ from abstarct_product import TileProduct
 from directions import Direction as dir
 
 
+# ConcreteProductA2
 class OutdoorTile(TileProduct):
     def __init__(self, name, effect=None, doors=None, x=16, y=16, entrance=None):
         if doors is None:
