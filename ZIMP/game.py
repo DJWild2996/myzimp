@@ -1,9 +1,9 @@
 import random
 from directions import Direction as dir
-import pandas as pd
-from dev_card import DevCard
-from indoor_tile_factory import IndoorTile
-from outdoor_tile_factory import OutdoorTile
+from game_factory_method import Start
+from game_factory_method import LoadTiles
+from game_factory_method import LoadCards
+from game_factory_method import GetGame
 
 
 class Game:
@@ -34,38 +34,11 @@ class Game:
 
     #  Puts the game into starting state using users input of the start command
     def start_game(self):
-        self.load_tiles()
-        self.load_dev_cards()
-        print('The dead walk the earth. You must search the house for the Evil Temple, and find the zombie totem. Then '
-              'take the totem outside, and bury it in the Graveyard, all before the clock strikes midnight. ')
-        for tile in self.indoor_tiles:
-            if tile.name == 'Foyer':
-                self.chosen_tile = tile
-                self.state = "Rotating"
-                break
+        Start.command(self)
 
     #  Loads the games different states and assigns command line text to them
     def get_game(self):
-        try:
-            s = ''
-            f = ''
-            if self.state == "Moving":
-                s = "In this state you can move by typing 'n, e, s, w' "
-            if self.state == "Rotating":
-                s = "Type 'rotate' until the door of the current tile are aligned with the new tile" \
-                    " Once you are happy with the door position you can place the tile by typing 'place' "
-            if self.state == "Choosing Door":
-                s = "There are no doors you can go through in this room, you will have to make your-own" \
-                    "Choose where to place a new door by typing 'choose' and a direction 'n, e, s, w' "
-            if self.state == "Drawing Dev Card":
-                s = "Type 'draw' to draw a random card this may lead to a zombie attack, and item or nothing depending on the time"
-            for door in self.chosen_tile.doors:
-                f += door.name + ', '
-            return print(f' Your current tile is {self.chosen_tile.name}, the available doors in this room are {f}\n '
-                         f'The state is {self.state}. {s} \n Special Entrances : {self.chosen_tile.entrance}')
-
-        except AttributeError as e:
-            print("ERROR: Unable to load game states, please try again", e)
+        GetGame.command(self)
 
     #  Shows player there current stats
     def get_player_status(self):
@@ -80,28 +53,7 @@ class Game:
 
     # Load tiles from the Excel file, added error checking - Daniel
     def load_tiles(self):
-        try:
-            excel_data = pd.read_excel('Tiles.xlsx')
-            tiles = []
-            for name in excel_data.iterrows():
-                tiles.append(name[1].tolist())
-            for tile in tiles:
-                doors = self.resolve_doors(tile[3], tile[4], tile[5], tile[6])
-                if tile[2] == "Outdoor":
-                    new_tile = OutdoorTile(tile[0], tile[1], doors)
-                    if tile[0] == "Patio":
-                        new_tile.set_entrance(dir.NORTH)
-                    self.outdoor_tiles.append(new_tile)
-                if tile[2] == "Indoor":
-                    new_tile = IndoorTile(tile[0], tile[1], doors)
-                    if tile[0] == "Dining Room":
-                        new_tile.set_entrance(dir.NORTH)
-                    self.indoor_tiles.append(new_tile)
-
-        except FileNotFoundError as e:
-            print("ERROR: File not found please check Excel file name", e)
-        except OSError as e:
-            print("ERROR: Unable to access file please check file location", e)
+        LoadTiles.command(self)
 
     # Lets player draw tiles as the move- Daniel
     def draw_tile(self, x, y):
@@ -130,24 +82,7 @@ class Game:
 
     # Load cards from Excel file, added error checking - Daniel
     def load_dev_cards(self):
-        try:
-            card_data = pd.read_excel('DevCards.xlsx')
-            for card in card_data.iterrows():
-                item = card[1][0]
-                event_one = (card[1][1], card[1][2])
-                event_two = (card[1][3], card[1][4])
-                event_three = (card[1][5], card[1][6])
-                charges = card[1][7]
-                dev_card = DevCard(item, charges, event_one, event_two, event_three)
-                self.dev_cards.append(dev_card)
-            random.shuffle(self.dev_cards)
-            self.dev_cards.pop(0)
-            self.dev_cards.pop(0)
-
-        except FileNotFoundError as e:
-            print("ERROR: File not found please check Excel file name", e)
-        except OSError as e:
-            print("ERROR: Unable to access file please check file location", e)
+        LoadCards.command(self)
 
     #  Moves the player to a new location when in the right state
     def move_player(self, x, y):
