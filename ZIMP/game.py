@@ -4,6 +4,7 @@ from game_factory_method import Start
 from game_factory_method import LoadTiles
 from game_factory_method import LoadCards
 from game_factory_method import GetGame
+from game_factory_method import PlayerInfo
 
 
 class Game:
@@ -42,11 +43,7 @@ class Game:
 
     #  Shows player there current stats
     def get_player_status(self):
-        return print(f'It is {self.get_time()} pm \n'
-                     f'The player currently has {self.player.get_health()} health \n'
-                     f'The player currently has {self.player.get_attack()} attack \n'
-                     f'The players items are {self.player.get_items()}\n'
-                     f'The game state is {self.state}')
+        PlayerInfo.command(self)
 
     def get_time(self):
         return self.time
