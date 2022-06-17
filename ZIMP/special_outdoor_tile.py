@@ -1,9 +1,9 @@
-from abstarct_product import TileProduct
+from abstract_product_B import SpecialTileProduct
 from directions import Direction as dir
 
 
-# ConcreteProductA2
-class SpecialOutdoorTile(TileProduct):
+# ConcreteProductB2
+class SpecialOutdoorTile(SpecialTileProduct):
     def __init__(self, name, effect=None, doors=None, x=16, y=16, entrance=None):
         if doors is None:
             doors = []

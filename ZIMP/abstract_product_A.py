@@ -2,7 +2,7 @@ from abc import ABCMeta, abstractmethod
 
 
 # AbstractProductA
-class TileProduct(metaclass=ABCMeta):
+class NormalTileProduct(metaclass=ABCMeta):
     @abstractmethod
     def __init__(self):
         pass
