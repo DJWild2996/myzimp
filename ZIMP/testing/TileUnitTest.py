@@ -41,6 +41,9 @@ class TestTile(unittest.TestCase):
         expected = factory.rotate_tile
         self.assertEqual(expected, actual)
 
+    def tearDown(self):
+        print("This test case is done!")
+
 
 if __name__ == '__main__':
     unittest.main()
