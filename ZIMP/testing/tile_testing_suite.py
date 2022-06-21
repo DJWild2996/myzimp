@@ -1,19 +1,15 @@
-from TileUnitTest import TestTile
+from tile_unit_test import TestTile
+from tile_unit_test import TestIndoorTile
+from tile_unit_test import TestOutdoorTile
 
 import unittest
 
 
 def suite():
     the_suite = unittest.TestSuite()
-    '''
-    suite1.addTest(TestTile("test_abstract_factory_setx"))
-    suite1.addTest(TestTile("test_abstract_factory_sety"))
-    suite1.addTest(TestTile("test_abstract_factory_door_position"))
-    suite1.addTest(TestTile("test_abstract_factory_set_entrance"))
-    suite1.addTest(TestTile("test_abstract_factory_rotate_entrance"))
-    suite1.addTest(TestTile("test_abstract_factory_rotate_tile"))
-    '''
     the_suite.addTest(unittest.makeSuite(TestTile))
+    the_suite.addTest(unittest.makeSuite(TestIndoorTile))
+    the_suite.addTest(unittest.makeSuite(TestOutdoorTile))
     return the_suite
 
 
