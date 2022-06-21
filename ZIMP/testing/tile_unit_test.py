@@ -6,10 +6,10 @@ from normal_outdoor_tile import NormalOutdoorTile
 
 class TestTile(unittest.TestCase):
     def setUp(self):
-        self.tile = NormalTileFactory(self)
+        self.tile = NormalIndoorTile(self)
 
     def test_defaults(self):
-        tile = NormalTileFactory('name', 16, 16, 'none', 'none', 'none')
+        tile = NormalIndoorTile('name', 16, 16, 'none', 'none', 'none')
         self.assertTrue(hasattr(tile, 'name'))
         self.assertTrue(hasattr(tile, 'x'))
         self.assertTrue(hasattr(tile, 'y'))
@@ -21,7 +21,7 @@ class TestTile(unittest.TestCase):
         self.assertEqual(self.tile.x, 16)
 
     def test_set_x(self):
-        tile = NormalTileFactory
+        tile = NormalIndoorTile
         tile.set_x(self, x='x')
         self.assertEqual(tile.set_x, 'x')
 
@@ -29,7 +29,7 @@ class TestTile(unittest.TestCase):
         self.assertEqual(self.tile.y, 16)
 
     def test_set_y(self):
-        tile = NormalTileFactory
+        tile = NormalIndoorTile
         tile.set_y(self, y='y')
         self.assertEqual(tile.set_y, 'y')
 
@@ -43,88 +43,88 @@ class TestTile(unittest.TestCase):
         self.assertEqual(self.tile.entrance, None)
 
     def test_tile_has_setx(self):
-        tile = NormalTileFactory
+        tile = NormalIndoorTile
         self.assertTrue(hasattr(tile, 'set_x'))
         self.assertTrue(callable(getattr(tile, 'set_x', None)))
 
     def test_tile_has_sety(self):
-        tile = NormalTileFactory
+        tile = NormalIndoorTile
         self.assertTrue(hasattr(tile, 'set_y'))
         self.assertTrue(callable(getattr(tile, 'set_y', None)))
 
     def test_tile_has_change_door_position(self):
-        tile = NormalTileFactory
+        tile = NormalIndoorTile
         self.assertTrue(hasattr(tile, 'change_door_position'))
         self.assertTrue(callable(getattr(tile, 'change_door_position', None)))
 
     def test_tile_has_set_entrance(self):
-        tile = NormalTileFactory
+        tile = NormalIndoorTile
         self.assertTrue(hasattr(tile, 'set_entrance'))
         self.assertTrue(callable(getattr(tile, 'set_entrance', None)))
 
     def test_tile_rotate_entrance(self):
-        tile = NormalTileFactory
+        tile = NormalIndoorTile
         self.assertTrue(hasattr(tile, 'rotate_entrance'))
         self.assertTrue(callable(getattr(tile, 'rotate_entrance', None)))
 
     def test_rotate_tile(self):
-        tile = NormalTileFactory
+        tile = NormalIndoorTile
         self.assertTrue(hasattr(tile, 'rotate_tile'))
         self.assertTrue(callable(getattr(tile, 'rotate_tile', None)))
 
     def test_tile_setx(self):
-        tile = NormalTileFactory
+        tile = NormalIndoorTile
         actual = tile.set_x
         expected = tile.set_x
         self.assertEqual(expected, actual)
 
     def test_tile_sety(self):
-        tile = NormalTileFactory
+        tile = NormalIndoorTile
         actual = tile.set_y
         expected = tile.set_y
         self.assertEqual(expected, actual)
 
     def test_tile_door_position(self):
-        tile = NormalTileFactory
+        tile = NormalIndoorTile
         actual = tile.change_door_position
         expected = tile.change_door_position
         self.assertEqual(expected, actual)
 
     def test_tile_set_entrance(self):
-        tile = NormalTileFactory
+        tile = NormalIndoorTile
         actual = tile.set_entrance
         expected = tile.set_entrance
         self.assertEqual(expected, actual)
 
     def test_tile_rotate_entrance(self):
-        tile = NormalTileFactory
+        tile = NormalIndoorTile
         actual = tile.rotate_entrance
         expected = tile.rotate_entrance
         self.assertEqual(expected, actual)
 
     def test_tile_rotate_tile(self):
-        tile = NormalTileFactory
+        tile = NormalIndoorTile
         actual = tile.rotate_tile
         expected = tile.rotate_tile
         self.assertEqual(expected, actual)
 
     def test_change_door_position(self):
-        tile = NormalTileFactory('name', 16, 16, 'none', 'none', 'none')
+        tile = NormalIndoorTile('name', 16, 16, 'none', 'none', 'none')
         self.assertTrue(hasattr(tile, 'change_door_position'))
         self.assertTrue(callable(getattr(tile, 'change_door_position', None)))
 
     def test_set_entrance(self):
-        tile = NormalTileFactory('name', 16, 16, 'none', 'none', 'none')
+        tile = NormalIndoorTile('name', 16, 16, 'none', 'none', 'none')
         self.assertTrue(hasattr(tile, 'set_entrance'))
         self.assertTrue(callable(getattr(tile, 'set_entrance', None)))
 
     def test_door_direction(self):
-        tile = NormalTileFactory
+        tile = NormalIndoorTile
         tile.change_door_position(self, idx=self.tile.doors, direction='direction')
         self.assertEqual(tile.change_door_position, 'direction')
 
     def test_entrance_direction(self):
-        tile = NormalTileFactory
+        tile = NormalIndoorTile
         tile.set_entrance(self, direction=self.tile.entrance)
         self.assertEqual(tile.set_entrance, 'direction')
 
