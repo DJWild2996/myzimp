@@ -1,4 +1,4 @@
-from abstract_game import AbstractCommands
+from abstract_commands import AbstractCommands
 import random
 import pandas as pd
 from dev_card import DevCard

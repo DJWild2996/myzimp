@@ -8,7 +8,7 @@ from trigger_dev_card import TriggerDevCard
 from trigger_attack import TriggerAttack
 
 
-# Factory Method
+# Factory Method / Concrete Creator
 class CommandFactory:
     def start_game(self):
         return Start()

@@ -1,4 +1,4 @@
-from abstract_game import AbstractCommands
+from abstract_commands import AbstractCommands
 
 
 # Product A

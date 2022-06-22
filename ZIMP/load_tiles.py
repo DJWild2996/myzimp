@@ -1,4 +1,4 @@
-from abstract_game import AbstractCommands
+from abstract_commands import AbstractCommands
 from directions import Direction as dir
 import pandas as pd
 from normal_tile_factory import NormalIndoorTile
