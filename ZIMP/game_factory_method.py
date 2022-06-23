@@ -1,3 +1,4 @@
+from abstract_creator import Creator
 from start import Start
 from load_tiles import LoadTiles
 from load_cards import LoadCards
@@ -9,29 +10,41 @@ from trigger_attack import TriggerAttack
 
 
 # Factory Method / Concrete Creator
-class CommandFactory:
-    def start_game(self):
+class ConcreteCreator1(Creator):
+    def factory_method(self):
         return Start()
 
-    def load_tiles(self):
+
+class ConcreteCreator2(Creator):
+    def factory_method(self):
         return LoadTiles()
 
-    def Load_cards(self):
+
+class ConcreteCreator3(Creator):
+    def factory_method(self):
         return LoadCards()
 
-    def get_game(self):
+
+class ConcreteCreator4(Creator):
+    def factory_method(self):
         return GetGame()
 
-    def get_player_status(self):
+
+class ConcreteCreator5(Creator):
+    def factory_method(self):
         return PlayerInfo()
 
-    def draw_tile(self):
+
+class ConcreteCreator6(Creator):
+    def factory_method(self):
         return DrawTiles()
 
-    def trigger_dev_card(self):
+
+class ConcreteCreator7(Creator):
+    def factory_method(self):
         return TriggerDevCard()
 
-    def trigger_attack(self):
+
+class ConcreteCreator8(Creator):
+    def factory_method(self):
         return TriggerAttack()
-
-

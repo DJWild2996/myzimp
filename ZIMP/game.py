@@ -1,4 +1,3 @@
-import random
 from directions import Direction as dir
 from game_factory_method import Start
 from game_factory_method import LoadTiles
