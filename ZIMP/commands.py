@@ -2,7 +2,7 @@ import pickle
 import cmd
 from game import Game
 from player import Player
-from directions import Direction as dir
+from directions import Direction as myD
 
 
 class Commands(cmd.Cmd):
@@ -38,7 +38,7 @@ class Commands(cmd.Cmd):
     def do_n(self, line):
         try:
             if self.game.state == "Moving":
-                self.game.select_move(dir.NORTH)
+                self.game.select_move(myD.NORTH)
                 self.game.get_game()
             else:
                 print("You are not currently in Move state")
@@ -54,7 +54,7 @@ class Commands(cmd.Cmd):
     def do_s(self, line):
         try:
             if self.game.state == "Moving":
-                self.game.select_move(dir.SOUTH)
+                self.game.select_move(myD.SOUTH)
                 self.game.get_game()
                 self.game.get_player_status()
             else:
@@ -67,11 +67,11 @@ class Commands(cmd.Cmd):
     def help_s():
         print("Type 's' while in the moving state")
 
-    # Move to a east tile
+    # Move to an east tile
     def do_e(self, line):
         try:
             if self.game.state == "Moving":
-                self.game.select_move(dir.EAST)
+                self.game.select_move(myD.EAST)
                 self.game.get_game()
                 self.game.get_player_status()
             else:
@@ -88,7 +88,7 @@ class Commands(cmd.Cmd):
     def do_w(self, line):
         try:
             if self.game.state == "Moving":
-                self.game.select_move(dir.WEST)
+                self.game.select_move(myD.WEST)
                 self.game.get_game()
                 self.game.get_player_status()
             else:
@@ -171,13 +171,13 @@ class Commands(cmd.Cmd):
             if direction not in dir_choice:
                 return print("Invalid input please type 'choose' and one of 'n', 'e', 's', 'w' ")
             if direction == 'n':
-                direction = dir.NORTH
+                direction = myD.NORTH
             if direction == "e":
-                direction = dir.EAST
+                direction = myD.EAST
             if direction == "s":
-                direction = dir.SOUTH
+                direction = myD.SOUTH
             if direction == "w":
-                direction = dir.WEST
+                direction = myD.WEST
             if self.game.state == "Choosing Door":
                 self.game.can_cower = False
                 self.game.choose_door(direction)
@@ -279,13 +279,13 @@ class Commands(cmd.Cmd):
         try:
             if self.game.state == "Attacking":
                 if direction == 'n':
-                    self.game.trigger_run(dir.NORTH)
+                    self.game.trigger_run(myD.NORTH)
                 elif direction == 'e':
-                    self.game.trigger_run(dir.EAST)
+                    self.game.trigger_run(myD.EAST)
                 elif direction == 's':
-                    self.game.trigger_run(dir.SOUTH)
+                    self.game.trigger_run(myD.SOUTH)
                 elif direction == 'w':
-                    self.game.trigger_run(dir.WEST)
+                    self.game.trigger_run(myD.WEST)
                 else:
                     print("Cannot run that direction")
                 if len(self.game.get_current_tile().doors) == 1 and self.game.chosen_tile.name != "Foyer":

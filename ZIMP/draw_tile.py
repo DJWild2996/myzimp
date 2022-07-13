@@ -4,6 +4,9 @@ import random
 
 # Product E
 class DrawTiles(AbstractCommands):
+    def __init__(self):
+        self.chosen_tile = None
+
     def command(self, x, y):
         if self.get_current_tile().type == "Indoor":
             if len(self.indoor_tiles) == 0:
@@ -16,7 +19,7 @@ class DrawTiles(AbstractCommands):
                 tile.set_y(y)
                 self.chosen_tile = tile
             else:
-                tile = random.choice(self.indoor_tiles)  # Chooses a random indoor tile and places it
+                tile = random.choice(self.indoor_tiles)
                 tile.set_x(x)
                 tile.set_y(y)
                 self.chosen_tile = tile

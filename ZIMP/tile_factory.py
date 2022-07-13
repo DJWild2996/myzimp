@@ -7,7 +7,7 @@ from outdoor_tile import OutdoorTile
 class TileFactory(BaseAbstractFactory):
 
     def create_product_a(self):
-        return IndoorTile()
+        return IndoorTile(name=None)
 
     def create_product_b(self):
-        return OutdoorTile()
+        return OutdoorTile(name=None)

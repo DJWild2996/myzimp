@@ -3,6 +3,13 @@ from abstract_commands import AbstractCommands
 
 # Product F
 class TriggerDevCard(AbstractCommands):
+    def __init__(self, player, state="Starting", can_cower=True):
+        self.room_item = None
+        self.player = player
+        self.current_zombies = None
+        self.state = state
+        self.can_cower = can_cower
+
     def command(self, time):
         if len(self.dev_cards) == 0:
             if self.get_time == 11:

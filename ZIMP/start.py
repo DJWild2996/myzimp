@@ -3,6 +3,11 @@ from abstract_commands import AbstractCommands
 
 # Product A
 class Start(AbstractCommands):
+    def __init__(self, chosen_tile=None, state="Starting"):
+        self.state = None
+        self.chosen_tile = chosen_tile
+        self.state = state
+
     def command(self):
         self.load_tiles()
         self.load_dev_cards()

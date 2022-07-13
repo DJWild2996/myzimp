@@ -1,5 +1,5 @@
 from abstract_product_A import TileProduct
-from directions import Direction as dir
+from directions import Direction as myD
 
 
 # ConcreteProductA2
@@ -32,26 +32,26 @@ class OutdoorTile(TileProduct):
         self.entrance = direction
 
     def rotate_entrance(self):
-        if self.entrance == dir.NORTH:
-            self.set_entrance(dir.EAST)
+        if self.entrance == myD.NORTH:
+            self.set_entrance(myD.EAST)
             return
-        if self.entrance == dir.SOUTH:
-            self.set_entrance(dir.WEST)
+        if self.entrance == myD.SOUTH:
+            self.set_entrance(myD.WEST)
             return
-        if self.entrance == dir.EAST:
-            self.set_entrance(dir.SOUTH)
+        if self.entrance == myD.EAST:
+            self.set_entrance(myD.SOUTH)
             return
-        if self.entrance == dir.WEST:
-            self.set_entrance(dir.NORTH)
+        if self.entrance == myD.WEST:
+            self.set_entrance(myD.NORTH)
             return
 
     def rotate_tile(self):
         for door in self.doors:
-            if door == dir.NORTH:
-                self.change_door_position(self.doors.index(door), dir.EAST)
-            if door == dir.EAST:
-                self.change_door_position(self.doors.index(door), dir.SOUTH)
-            if door == dir.SOUTH:
-                self.change_door_position(self.doors.index(door), dir.WEST)
-            if door == dir.WEST:
-                self.change_door_position(self.doors.index(door), dir.NORTH)
+            if door == myD.NORTH:
+                self.change_door_position(self.doors.index(door), myD.EAST)
+            if door == myD.EAST:
+                self.change_door_position(self.doors.index(door), myD.SOUTH)
+            if door == myD.SOUTH:
+                self.change_door_position(self.doors.index(door), myD.WEST)
+            if door == myD.WEST:
+                self.change_door_position(self.doors.index(door), myD.NORTH)

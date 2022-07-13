@@ -3,6 +3,12 @@ from abstract_commands import AbstractCommands
 
 # Product F
 class TriggerAttack(AbstractCommands):
+    def __init__(self, player):
+        self.player = player
+        self.current_zombies = None
+        self.state = None
+        self.can_cower = None
+
     def command(self, *item):
         player_attack = self.player.get_attack()
         zombies = self.current_zombies

@@ -6,6 +6,9 @@ from dev_card import DevCard
 
 # Product C
 class LoadCards(AbstractCommands):
+    def __init__(self):
+        self.dev_cards = None
+
     def command(self):
         try:
             card_data = pd.read_excel('DevCards.xlsx')
