@@ -7,6 +7,8 @@ from game_factory_method import PlayerInfo
 from game_factory_method import DrawTiles
 from game_factory_method import TriggerDevCard
 from game_factory_method import TriggerAttack
+from tile_action_factory import SearchForTotem
+from tile_action_factory import BuryTotem
 
 
 class Game:
@@ -255,25 +257,10 @@ class Game:
             self.state = "Attacking"
 
     def search_for_totem(self):
-        if self.get_current_tile().name == "Evil Temple":
-            if self.player.has_totem:
-                print("player already has the totem")
-                return
-            else:
-                self.trigger_dev_card(self.time)
-                self.player.found_totem()
-        else:
-            print("You cannot search for a totem in this room")
+        SearchForTotem.tile_action(self)
 
     def bury_totem(self):
-        if self.get_current_tile().name == "Graveyard":
-            if self.player.has_totem:
-                self.trigger_dev_card(self.time)
-                if self.player.health != 0:
-                    print("You Won")
-                    self.state = "Game Over"
-        else:
-            print("Cannot bury totem here")
+        BuryTotem.tile_action(self)
 
     def check_for_dead_player(self):
         if self.player.health <= 0:
