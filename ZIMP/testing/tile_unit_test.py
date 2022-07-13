@@ -1,5 +1,5 @@
 import unittest
-from tile_factory import TileFactory
+from indoor_tile_factory import IndoorTileFactory
 from indoor_tile import IndoorTile
 from outdoor_tile import OutdoorTile
 

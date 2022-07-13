@@ -1,13 +1,12 @@
-from abstract_product_B import TileProduct
+from abstract_product_B import TileAction
 
 
 # ConcreteProductB1
-class SearchForTotem(TileProduct):
-    def __init__(self, game, player, time=9):
+class SearchForTotem(TileAction):
+    def __init__(self, game, player):
 
         self.game = game
         self.player = player
-        self.time = time
 
     def tile_action(self):
         if self.game.get_current_tile().name == "Evil Temple":
@@ -15,7 +14,7 @@ class SearchForTotem(TileProduct):
                 print("player already has the totem")
                 return
             else:
-                self.game.trigger_dev_card(self.time)
+                self.game.trigger_dev_card(self.game.time)
                 self.player.found_totem()
         else:
             print("You cannot search for a totem in this room")

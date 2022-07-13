@@ -1,13 +1,12 @@
-from abstract_product_B import TileProduct
+from abstract_product_B import TileAction
 
 
-# ConcreteProductB1
-class BuryTotem(TileProduct):
-    def __init__(self, game, player, time=9):
+# ConcreteProductB2
+class BuryTotem(TileAction):
+    def __init__(self, game, player):
 
         self.game = game
         self.player = player
-        self.time = time
 
     def tile_action(self):
         if self.game.get_current_tile().name == "Graveyard":

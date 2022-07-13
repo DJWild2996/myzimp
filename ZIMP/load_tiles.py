@@ -1,8 +1,8 @@
 from abstract_commands import AbstractCommands
 from directions import Direction as myD
 import pandas as pd
-from tile_factory import IndoorTile
-from tile_factory import OutdoorTile
+from indoor_tile_factory import IndoorTile
+from indoor_tile_factory import OutdoorTile
 
 
 # Product B

@@ -7,8 +7,8 @@ from game_factory_method import PlayerInfo
 from game_factory_method import DrawTiles
 from game_factory_method import TriggerDevCard
 from game_factory_method import TriggerAttack
-from tile_action_factory import SearchForTotem
-from tile_action_factory import BuryTotem
+from indoor_tile_factory import SearchForTotem
+from outdoor_tile_factory import BuryTotem
 
 
 class Game:
