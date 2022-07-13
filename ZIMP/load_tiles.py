@@ -1,8 +1,8 @@
 from abstract_commands import AbstractCommands
 from directions import Direction as dir
 import pandas as pd
-from normal_tile_factory import NormalIndoorTile
-from normal_tile_factory import NormalOutdoorTile
+from tile_factory import IndoorTile
+from tile_factory import OutdoorTile
 
 
 # Product B
@@ -16,12 +16,12 @@ class LoadTiles(AbstractCommands):
             for tile in tiles:
                 doors = self.resolve_doors(tile[3], tile[4], tile[5], tile[6])
                 if tile[2] == "Outdoor":
-                    new_tile = NormalOutdoorTile(tile[0], tile[1], doors)
+                    new_tile = OutdoorTile(tile[0], tile[1], doors)
                     if tile[0] == "Patio":
                         new_tile.set_entrance(dir.NORTH)
                     self.outdoor_tiles.append(new_tile)
                 if tile[2] == "Indoor":
-                    new_tile = NormalIndoorTile(tile[0], tile[1], doors)
+                    new_tile = IndoorTile(tile[0], tile[1], doors)
                     if tile[0] == "Dining Room":
                         new_tile.set_entrance(dir.NORTH)
                     self.indoor_tiles.append(new_tile)
