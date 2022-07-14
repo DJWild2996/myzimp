@@ -1,3 +1,5 @@
+import indoor_tile_factory
+import outdoor_tile_factory
 from directions import Direction as myD
 from game_factory_method import Start
 from game_factory_method import LoadTiles
@@ -7,8 +9,8 @@ from game_factory_method import PlayerInfo
 from game_factory_method import DrawTiles
 from game_factory_method import TriggerDevCard
 from game_factory_method import TriggerAttack
-from indoor_tile_factory import SearchForTotem
-from outdoor_tile_factory import BuryTotem
+from abstract_factory import BaseAbstractFactory
+from abstract_creator import Creator
 
 
 class Game:
@@ -257,10 +259,12 @@ class Game:
             self.state = "Attacking"
 
     def search_for_totem(self):
-        SearchForTotem.tile_action(self)
+        search = indoor_tile_factory.SearchForTotem
+        search.tile_action(self)
 
     def bury_totem(self):
-        BuryTotem.tile_action(self)
+        bury = outdoor_tile_factory.BuryTotem
+        bury.tile_action(self)
 
     def check_for_dead_player(self):
         if self.player.health <= 0:

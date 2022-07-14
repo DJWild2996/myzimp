@@ -7,13 +7,15 @@ class BuryTotem(TileAction):
 
         self.game = game
         self.player = player
+        self.type = "Outdoor"
 
     def tile_action(self):
-        if self.game.get_current_tile().name == "Graveyard":
-            if self.player.has_totem:
-                self.game.trigger_dev_card(self.game.time)
-                if self.player.health != 0:
-                    print("You Won")
-                    self.game.state = "Game Over"
+        if self.get_current_tile().type == "Outdoor":
+            if self.game.get_current_tile().name == "Graveyard":
+                if self.player.has_totem:
+                    self.game.trigger_dev_card(self.game.time)
+                    if self.player.health != 0:
+                        print("You Won")
+                        self.game.state = "Game Over"
         else:
             print("Cannot bury totem here")
