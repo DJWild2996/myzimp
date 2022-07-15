@@ -1,5 +1,3 @@
-import indoor_tile_factory
-import outdoor_tile_factory
 from directions import Direction as myD
 from game_factory_method import Start
 from game_factory_method import LoadTiles
@@ -9,8 +7,8 @@ from game_factory_method import PlayerInfo
 from game_factory_method import DrawTiles
 from game_factory_method import TriggerDevCard
 from game_factory_method import TriggerAttack
-from abstract_factory import BaseAbstractFactory
-from abstract_creator import Creator
+from indoor_tile_factory import SearchForTotem
+from outdoor_tile_factory import BuryTotem
 
 
 class Game:
@@ -38,6 +36,7 @@ class Game:
         self.current_zombies = 0
         self.can_cower = can_cower
         self.room_item = None
+        self.search = None
 
     #  Puts the game into starting state using users input of the start command
     def start_game(self):
@@ -258,13 +257,20 @@ class Game:
                   f" fight or the run command to flee")
             self.state = "Attacking"
 
+    def set_search(self, search: SearchForTotem):
+        if search is None:
+            raise ValueError("search must be provided")
+        self.search = search
+
     def search_for_totem(self):
-        search = indoor_tile_factory.SearchForTotem
-        search.tile_action(self)
+        self.set_search()
+        self.search.tile_action(self)
+
+    # def search_for_totem(self):
+    #     SearchForTotem.tile_action(self)
 
     def bury_totem(self):
-        bury = outdoor_tile_factory.BuryTotem
-        bury.tile_action(self)
+        BuryTotem.tile_action(self)
 
     def check_for_dead_player(self):
         if self.player.health <= 0:
