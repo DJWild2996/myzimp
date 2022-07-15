@@ -18,7 +18,8 @@ class LoadCards(AbstractCommands):
                 event_two = (card[1][3], card[1][4])
                 event_three = (card[1][5], card[1][6])
                 charges = card[1][7]
-                dev_card = DevCard(item, charges, event_one, event_two, event_three)
+                dev_card = DevCard(item, charges, event_one,
+                                   event_two, event_three)
                 self.dev_cards.append(dev_card)
             random.shuffle(self.dev_cards)
             self.dev_cards.pop(0)
