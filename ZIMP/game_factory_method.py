@@ -11,40 +11,40 @@ from trigger_attack import TriggerAttack
 
 # Factory Method / Concrete Creator
 class ConcreteCreator1(Creator):
-    def factory_method(self):
+    def create_product(self):
         return Start()
 
 
 class ConcreteCreator2(Creator):
-    def factory_method(self):
+    def create_product(self):
         return LoadTiles()
 
 
 class ConcreteCreator3(Creator):
-    def factory_method(self):
+    def create_product(self):
         return LoadCards()
 
 
 class ConcreteCreator4(Creator):
-    def factory_method(self):
+    def create_product(self):
         return GetGame()
 
 
 class ConcreteCreator5(Creator):
-    def factory_method(self):
+    def create_product(self):
         return PlayerInfo()
 
 
 class ConcreteCreator6(Creator):
-    def factory_method(self):
+    def create_product(self):
         return DrawTiles()
 
 
 class ConcreteCreator7(Creator):
-    def factory_method(self):
+    def create_product(self):
         return TriggerDevCard()
 
 
 class ConcreteCreator8(Creator):
-    def factory_method(self):
+    def create_product(self):
         return TriggerAttack()

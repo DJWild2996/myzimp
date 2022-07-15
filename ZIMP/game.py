@@ -257,15 +257,18 @@ class Game:
                   f" fight or the run command to flee")
             self.state = "Attacking"
 
+    # Attempt at dependency injections *Not working
     def set_search(self, search: SearchForTotem):
         if search is None:
             raise ValueError("search must be provided")
         self.search = search
 
+    # Attempt at dependency injections *Not working
     def search_for_totem(self):
         self.set_search()
         self.search.tile_action(self)
 
+    # Working search code
     # def search_for_totem(self):
     #     SearchForTotem.tile_action(self)
 
