@@ -24,6 +24,7 @@ class Game:
         if game_map is None:
             game_map = {}
 
+        self.search = None
         self.player = player
         self.time = time
         self.indoor_tiles = indoor_tiles
